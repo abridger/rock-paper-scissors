@@ -13,3 +13,9 @@ end
 Given(/^I click "(.*?)"$/) do |button|
   click_button('Register')
 end
+
+Given(/^I have registered$/) do
+  step('I am on the homepage')
+  step('I enter a username')
+  step('I click "Register"')
+end

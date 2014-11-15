@@ -1,5 +1,13 @@
-<h2>Please enter a username:</h2>
-<form action='/game' method='post'>
-  <input type='text' name='username'>
-  <input type='submit' value='Register'
-</form>
+<% unless session['player'] %>
+  <h2>Please enter a username:</h2>
+  <form action='/game' method='post'>
+    <input type='text' name='username'>
+    <input type='submit' value='Register'>
+  </form>
+<% end %>
+<% if session['player'] %>
+  <p>Welcome back <%= @player.name %>! Ready to play again?</p>
+  <form action='/game' method='post'>
+    <input type='submit' value='Play again'>
+  </form>
+<% end %>

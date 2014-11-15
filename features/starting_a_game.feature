@@ -12,3 +12,9 @@ Feature: Starting the game
     And I enter a username
     And I click "Register"
     Then I should see the message "What would you like to choose?"
+
+  Scenario: Revisiting the site
+    Given I have registered
+    And I am on the homepage
+    Then I should see the message "Welcome back"
+    And I should see the message "Ready to play again?"

@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative '../lib/game'
+require_relative '../lib/player'
 
 class RockPaperScissors < Sinatra::Base
 
@@ -8,20 +9,26 @@ class RockPaperScissors < Sinatra::Base
   GAME = Game.new
 
   get '/' do
+    @player = GAME.player1 if session[:player] == GAME.player1.object_id
+
     erb :index
   end
 
   post '/game' do
-    # make new player
-    @username = params[:username]
-    GAME.player1 = @username
-    # add game and player to session
-    session[:username] = @username.object_id
-    session[:game] = GAME.object_id
-    
+    if session[:player] == GAME.player1.object_id  
+      @player = GAME.player1
+    else
+      # make new player
+      @player = Player.new(params[:username])
+      
+      GAME.player1 = @player
+      # add game and player to session
+      session[:player] = @player.object_id
+      session[:game] = GAME.object_id
+    end
     # check values in console
     p session
-    p @username
+    p @player
     p GAME.player1.object_id
     p GAME
     p GAME.object_id
