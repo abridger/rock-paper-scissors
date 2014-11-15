@@ -33,3 +33,29 @@ Change the game so that two marketeers can play against each other.
 
 ### Bonus 2: Rock, Paper, Scissors, Spock, Lizard
 Expand the game using the special rules (http://en.wikipedia.org/wiki/Rock-paper-scissors-lizard-Spock).
+
+Classes
+--------------------
+* Player
+* Game
+* Objects (rock, paper, scissors)
+
+### Player
+| Responsibiities | Collaborators |
+|-----------------|---------------|
+| Enter name | Game |
+| Choose an object | Object |
+
+### Game
+| Responsibiities | Collaborators |
+|-----------------|---------------|
+| Start a round | Player |
+| Present choices to player | Object |
+| Randomly select an object |  |
+| Decide on winning object | |
+| Declare a winner | |
+
+### Object
+| Responsibiities | Collaborators |
+|-----------------|---------------|
+| Have a name |  |
