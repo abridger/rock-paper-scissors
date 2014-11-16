@@ -1,6 +1,7 @@
 class Game
 
-  attr_accessor :player1, :player2, :round
+  attr_accessor :player1, :player2
+  attr_reader :round
 
   def initialize
     player1, player2 = nil
@@ -16,6 +17,7 @@ class Game
   end
 
   def turn
+    raise "The game is over" if @round > 3
     evaluate(player1, player2)
     @round += 1
   end

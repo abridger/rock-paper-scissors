@@ -2,8 +2,8 @@ require 'game'
 
 describe Game do
 
-  let (:game) { Game.new }
-  let (:angus) { double :Player }
+  let (:game)   { Game.new       }
+  let (:angus)  { double :Player }
   let (:hamish) { double :Player }
 
   context "starting the game" do
@@ -26,6 +26,7 @@ describe Game do
       game.add_player(hamish)
       allow(hamish).to receive(:selection).and_return("Scissors")
       allow(angus).to receive(:selection).and_return("Paper")
+      allow(hamish).to receive(:add_point)
     end
 
     it "should allow players to take a turn" do
@@ -34,7 +35,8 @@ describe Game do
     end
 
     it "should only allow 3 rounds" do
-
+      3.times{game.turn}
+      expect(lambda {game.turn}).to raise_error("The game is over")
     end
 
     it "should choose a winner" do
