@@ -34,9 +34,9 @@ class RockPaperScissors < Sinatra::Base
     # p GAME
     # p GAME.object_id
 
-    @player.selection(params[:selection])
+    @player.selection=(params[:selection])
 
-    p @selection
+    p @player.selection
 
     erb :game
   end
