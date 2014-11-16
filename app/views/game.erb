@@ -1,4 +1,10 @@
 <p>Hi <%= @player.name %>! What would you like to choose?</p>
-<form action='/play' method='post'>
-
+<form action='/game' method='post'>
+  <input type="radio" name="selection" value="Rock" id="rock"><label for="rock">Rock</label>
+  <br />
+  <input type="radio" name="selection" value="Paper" id="paper"><label for="paper">Paper</label>
+  <br />
+  <input type="radio" name="selection" value="Scissors" id="scissors"><label for="scissors">Scissors</label>
+  <br />
+  <input type="submit" value="Submit">
 </form>

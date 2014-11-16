@@ -10,4 +10,8 @@
   <form action='/game' method='post'>
     <input type='submit' value='Play again'>
   </form>
+  <p>Not <%= @player.name %>?</p>
+  <form action='/reset' method='post'>
+    <input type='submit' value='Start a New Game'>
+  </form>
 <% end %>

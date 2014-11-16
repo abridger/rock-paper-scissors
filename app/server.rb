@@ -26,12 +26,17 @@ class RockPaperScissors < Sinatra::Base
       session[:player] = @player.object_id
       session[:game] = GAME.object_id
     end
+
     # check values in console
-    p session
-    p @player
-    p GAME.player1.object_id
-    p GAME
-    p GAME.object_id
+    # p session
+    # p @player
+    # p GAME.player1.object_id
+    # p GAME
+    # p GAME.object_id
+
+    @player.selection(params[:selection])
+
+    p @selection
 
     erb :game
   end
