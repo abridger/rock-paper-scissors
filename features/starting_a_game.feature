@@ -18,3 +18,9 @@ Feature: Starting the game
     And I am on the homepage
     Then I should see the message "Welcome back"
     And I should see the message "Ready to play again?"
+
+  Scenario: Resetting the game
+    Given I have registered
+    And I am on the homepage
+    And I click "Start a New Game"
+    Then I should see the message "Please enter a username"

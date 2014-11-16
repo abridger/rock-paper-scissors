@@ -11,7 +11,7 @@ Given(/^I enter a username$/) do
 end
 
 Given(/^I click "(.*?)"$/) do |button|
-  click_button('Register')
+  click_button(button)
 end
 
 Given(/^I have registered$/) do

@@ -36,6 +36,13 @@ class RockPaperScissors < Sinatra::Base
     erb :game
   end
 
+  post '/reset' do
+    GAME = Game.new
+    session[:player] = nil
+    session[:game] = GAME.object_id
+    erb :index
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
