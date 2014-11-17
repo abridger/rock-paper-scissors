@@ -6,4 +6,5 @@ Feature: Playing the game
   Scenario: Choosing an object to play
     Given I have registered
     And I choose "Rock"
+    And I click "Submit"
     Then I should see the message "Round Two"

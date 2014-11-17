@@ -1,6 +1,6 @@
 class Game
 
-  attr_accessor :player1, :player2
+  attr_accessor :player1, :player2, :round_winner
   attr_reader :round
 
   def initialize
@@ -17,17 +17,17 @@ class Game
   end
 
   def turn
-    raise "The game is over" if @round > 3
-    evaluate(player1, player2)
+    raise "The game is over" if @round >= 3
+    round_winner.add_point unless round_winner.nil?
     @round += 1
   end
 
-  def evaluate(player1, player2)
-    player1.add_point if player1.selection == "Rock" && player2.selection == "Scissors" || player1.selection == "Paper" && player2.selection == "Rock" || player1.selection == "Scissors" && player2.selection == "Paper"
-    player2.add_point if player2.selection == "Rock" && player1.selection == "Scissors" || player2.selection == "Paper" && player1.selection == "Rock" || player2.selection == "Scissors" && player1.selection == "Paper"
+  def round_winner
+    return player1 if player1.selection == "Rock" && player2.selection == "Scissors" || player1.selection == "Paper" && player2.selection == "Rock" || player1.selection == "Scissors" && player2.selection == "Paper"
+    return player2 if player2.selection == "Rock" && player1.selection == "Scissors" || player2.selection == "Paper" && player1.selection == "Rock" || player2.selection == "Scissors" && player1.selection == "Paper"
   end
 
-  def winner
+  def overall_winner
     return player1 if player1.points >= 2
     return player2 if player2.points >= 2
   end
