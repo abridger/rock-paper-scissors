@@ -15,9 +15,9 @@ class RockPaperScissors < Sinatra::Base
   end
 
   post '/game' do
+    session[:game] = GAME.object_id
     add_player unless GAME.player1
     add_bot unless GAME.player2
-    set_session_details
     check_current_player
 
     if params[:selection]
@@ -33,7 +33,7 @@ class RockPaperScissors < Sinatra::Base
       erb :game
   end
 
-  post '/reset' do
+  get '/reset' do
     GAME = Game.new
     session[:player] = nil
     session[:game] = GAME.object_id
@@ -44,16 +44,12 @@ class RockPaperScissors < Sinatra::Base
     def add_player
       @player = Player.new(params[:username])
       GAME.add_player(@player)
+      session[:player] = @player.object_id
     end
 
     def add_bot
       @bot = Bot.new
       GAME.add_player(@bot)
-    end
-
-    def set_session_details
-      session[:game] = GAME.object_id
-      session[:player] = @player.object_id
     end
 
     def check_current_player
