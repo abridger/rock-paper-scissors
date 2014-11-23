@@ -4,9 +4,12 @@ class Bot < Player
 
   attr_reader :selection
 
-  def initialize(name, object_set = DEFAULT_SET)
+  def initialize(object_set = DEFAULT_SET)
     super(object_set)
     @name = ["Hamish", "Angus", "Ivy", "Hercules"].sample
+  end
+
+  def selection
     @selection = @object_set.sample
   end
 

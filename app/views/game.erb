@@ -1,7 +1,7 @@
 <h2>Round <%= GAME.round %></h2>
 
-<% if params[:selection] %>  
-  
+<% if params[:selection] %>
+
   <% if @round_winner == @player %>
     <p>
       You won that round!
@@ -20,7 +20,7 @@
       What would you like to choose next?
     </p>
   <% end %>
-  
+
   <% if @round_winner.nil? %>
     <p>
       That was a tie! What would you like to choose next?
@@ -29,18 +29,14 @@
 
 <% end %>
 
-<% unless params[:selection] %> 
+<% unless params[:selection] %>
   <p>
-    Hi <%= @player.name %>! What would you like to choose?
+    Hi <%= @current_player.name %>! What would you like to choose?
   </p>
 <% end %>
 
 <form action='/game' method='post'>
-  <input type="radio" name="selection" value="Rock" id="rock"><label for="rock">Rock</label>
-  <br />
-  <input type="radio" name="selection" value="Paper" id="paper"><label for="paper">Paper</label>
-  <br />
-  <input type="radio" name="selection" value="Scissors" id="scissors"><label for="scissors">Scissors</label>
-  <br />
-  <input type="submit" value="Submit">
+  <input type="submit" name="selection" value="Rock">
+  <input type="submit" name="selection" value="Paper" >
+  <input type="submit" name="selection" value="Scissors">
 </form>

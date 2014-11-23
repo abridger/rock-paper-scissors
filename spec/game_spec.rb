@@ -35,7 +35,7 @@ describe Game do
     end
 
     it "should select the winner of each round" do
-      game.evaluate
+      game.check_winner
       expect(game.round_winner).to eq(hamish)
     end
 
