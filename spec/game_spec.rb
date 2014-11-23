@@ -24,8 +24,8 @@ describe Game do
     before(:each) do
       game.add_player(angus)
       game.add_player(hamish)
-      allow(hamish).to receive(:selection).and_return("Scissors")
-      allow(angus).to receive(:selection).and_return("Paper")
+      allow(hamish).to receive(:selection).and_return(:scissors)
+      allow(angus).to receive(:selection).and_return(:paper)
       allow(hamish).to receive(:add_point)
     end
 
@@ -35,8 +35,8 @@ describe Game do
     end
 
     it "should select the winner of each round" do
+      game.evaluate
       expect(game.round_winner).to eq(hamish)
-      game.turn
     end
 
     it "should select an overall winner" do
