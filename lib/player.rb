@@ -2,11 +2,14 @@ class Player
 
   attr_reader :name, :selection, :points
 
-  def initialize(name)
+  DEFAULT_SET = ["Rock", "Paper", "Scissors"]
+
+  def initialize(name, object_set = DEFAULT_SET)
     @name = name
     @points = 0
+    @object_set = object_set
   end
-  
+
   def selection=(object)
     @selection = object
   end
