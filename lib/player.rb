@@ -11,6 +11,7 @@ class Player
   end
 
   def selection=(object)
+    raise "Object not allowed - please only select rock, paper or scissors" unless @object_set.include?(object)
     @selection = object
   end
 

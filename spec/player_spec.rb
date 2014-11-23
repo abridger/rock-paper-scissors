@@ -13,6 +13,10 @@ describe Player do
     expect(player1.selection).to eq("Rock")
   end
 
+  it "should not be able to make a selection that is not rock, paper or scissors" do
+    expect(lambda {player1.selection=("carrot")} ).to raise_error("Object not allowed - please only select rock, paper or scissors")
+  end
+
   it "should be able to receive points" do
     expect{player1.add_point}.to change{player1.points}.by(1)
   end
