@@ -9,7 +9,7 @@ class Bot < Player
     @name = ["Hamish", "Angus", "Ivy", "Hercules"].sample
   end
 
-  def selection
+  def select
     @selection = @object_set.sample
   end
 

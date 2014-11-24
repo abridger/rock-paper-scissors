@@ -19,18 +19,21 @@ class RockPaperScissors < Sinatra::Base
     add_player unless GAME.player1
     add_bot unless GAME.player2
     check_current_player
-
     if params[:selection]
-      @current_player.selection=(params[:selection])
-      @opponent.selection if @opponent.is_a? Bot
-
+      make_selections
       if @opponent.selection
-        GAME.turn
-        @round_winner = GAME.round_winner
-        erb :game
+        play_round
+        redirect('/game-over') if GAME.round > GAME.max_rounds
       end
     end
-      erb :game
+    erb :game
+  end
+
+  get '/game-over' do
+    GAME.choose_winner
+    check_current_player
+    choose_winner
+    erb :"game-over"
   end
 
   get '/reset' do
@@ -60,6 +63,20 @@ class RockPaperScissors < Sinatra::Base
         @current_player = GAME.player2
         @opponent = GAME.player1
       end
+    end
+
+    def make_selections
+      @current_player.selection=(params[:selection]).to_sym
+      @opponent.select if @opponent.is_a? Bot
+    end
+
+    def play_round
+      GAME.turn
+    end
+
+    def choose_winner
+      @winner = @current_player if GAME.overall_winner.object_id == @current_player.object_id
+      @winner = @opponent if GAME.overall_winner.object_id == @opponent.object_id
     end
   end
 
