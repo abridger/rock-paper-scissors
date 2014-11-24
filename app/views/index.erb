@@ -8,6 +8,7 @@
 <% if @current_player %>
   <p>Welcome back <%= @current_player.name %>! Ready to play again?</p>
   <form action='/game' method='post'>
+    <input type='hidden' name='username' value='<%= @current_player.name %>'>
     <input type='submit' value='Play again'>
   </form>
   <p>Not <%= @current_player.name %>?</p>
