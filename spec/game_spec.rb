@@ -42,11 +42,12 @@ describe Game do
     it "should select an overall winner" do
       allow(hamish).to receive(:points).and_return(1)
       allow(angus).to receive(:points).and_return(2)
+      game.choose_winner
       expect(game.overall_winner).to eq(angus)
     end
 
     it "should only allow 3 rounds" do
-      2.times{game.turn}
+      game.max_rounds.times{game.turn}
       expect(lambda {game.turn}).to raise_error("The game is over")
     end
 

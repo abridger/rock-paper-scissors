@@ -5,5 +5,11 @@ Feature: Playing the game
 
   Scenario: Choosing an object to play
     Given I have registered
-    And I click the button "Rock"
+    And I have played a round
     Then I should see the message "Round 2"
+
+  Scenario: Finishing the gam
+    Given I have registered
+    And I have played a round
+    And I play two more rounds
+    Then I should see the message "Game over!"

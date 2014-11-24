@@ -1,0 +1,24 @@
+<h2>Game over!</h2>
+<p>
+  <% if GAME.round_winner == @current_player %>
+  <%= @opponent.name %> chose <%= @opponent.selection %> - you won the last round
+  <% elsif GAME.round_winner == @opponent %>
+    <%= @opponent.name %> won the last round wth <%= @opponent.selection %>
+  <% end %>
+  <% if GAME.round_winner.nil? %>
+    The last round was a tie.
+  <% end %>
+</p>
+<p>
+  <% if @winner == @current_player %>
+    You won the game!
+  <% elsif @winner == @opponent %>
+    <%= @opponent.name %> won the game!
+  <% end %>
+  <% if @winner.nil? %>
+  The game was a tie!
+  <% end %>
+  <a href="/reset">
+    Play again?
+  </a>
+</p>

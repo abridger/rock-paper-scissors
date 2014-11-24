@@ -15,7 +15,7 @@ Given(/^I click the button "(.*?)"$/) do |button|
 end
 
 Given(/^I click the link "(.*?)"$/) do |link_text|
-  click_link(link_text)
+    click_link(link_text)
 end
 
 Given(/^I have registered$/) do
