@@ -1,6 +1,6 @@
 Rock, Paper, Scissors
 =====================
-Makers Academy Week 3 Challenge.
+Makers Academy Week 3 Challenge to make a Rock, Paper, Scissors game using Ruby and Sinatra
 
 Technologies
 ------------
@@ -59,3 +59,12 @@ Classes
 | Responsibiities | Collaborators |
 |-----------------|---------------|
 | Have a name |  |
+
+Installation
+------------
+* Install dependencies: `bundle install`
+* Run the server: `rackup`
+
+Testing
+-------
+* Run `rspec` from the project root
