@@ -1,13 +1,8 @@
 require 'bot'
 
 describe Bot do
-
-  let(:bot) { Bot.new("Hamish") }
-
-  it "should make a selection" do
-
-    expect(Bot::DEFAULT_SET).to include(bot.selection)
-
+  it 'should make a selection' do
+    bot = Bot.new
+    expect(Bot::DEFAULT_SET).to include(bot.select)
   end
-
 end

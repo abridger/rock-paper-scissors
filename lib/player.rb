@@ -1,5 +1,4 @@
 class Player
-
   attr_reader :name, :selection, :points
 
   DEFAULT_SET = [:rock, :paper, :scissors]
@@ -18,5 +17,4 @@ class Player
   def add_point
     @points += 1
   end
-
 end

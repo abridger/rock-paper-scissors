@@ -1,5 +1,4 @@
 class Game
-
   DEFAULT_MAX_ROUNDS = 3
 
   attr_accessor :player1, :player2, :players, :max_rounds
@@ -45,5 +44,4 @@ class Game
     @overall_winner = player1 if player1.points >= 2
     @overall_winner = player2 if player2.points >= 2
   end
-
 end

@@ -1,5 +1,7 @@
 Rock, Paper, Scissors
 =====================
+[![Code Climate](https://codeclimate.com/github/abridger/rock-paper-scissors/badges/gpa.svg)](https://codeclimate.com/github/abridger/rock-paper-scissors) [![Test Coverage](https://codeclimate.com/github/abridger/rock-paper-scissors/badges/coverage.svg)](https://codeclimate.com/github/abridger/rock-paper-scissors)
+
 Makers Academy Week 3 Challenge to make a Rock, Paper, Scissors game using Ruby and Sinatra
 
 Technologies
@@ -67,4 +69,5 @@ Installation
 
 Testing
 -------
-* Run `rspec` from the project root
+* Run `rspec` from the project root to run unit tests
+* Run `cucumber` from the project root to run feature tests

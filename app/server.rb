@@ -2,7 +2,6 @@ require 'sinatra/base'
 require_relative '../lib/game'
 require_relative '../lib/player'
 require_relative '../lib/bot'
-require_relative './helpers'
 
 class RockPaperScissors < Sinatra::Base
 
@@ -51,7 +50,6 @@ class RockPaperScissors < Sinatra::Base
   end
 
   helpers do
-
     def add_player
       @player = Player.new(params[:username])
       GAME.add_player(@player)
@@ -86,7 +84,6 @@ class RockPaperScissors < Sinatra::Base
       @winner = @current_player if GAME.overall_winner.object_id == @current_player.object_id
       @winner = @opponent if GAME.overall_winner.object_id == @opponent.object_id
     end
-
   end
 
   # start the server if ruby file executed directly
